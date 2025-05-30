@@ -2,20 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations */
+@layer components {
+    .btn-primary {
+        @apply inline-block bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition-colors;
+    }
+}
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 
 .fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Add more custom styles here */
+.slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+.hero-slide {
+    @apply absolute inset-0 transition-opacity duration-500;
+}
+
+.hero-slide.active {
+    @apply opacity-100;
+}
+
+.hero-slide:not(.active) {
+    @apply opacity-0;
+}

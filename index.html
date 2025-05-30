@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ace Energy</title>
     <link href="./style.css" rel="stylesheet">
-    <script src="./js/main.js" defer></script>
+    <script src="./js/main.js" type="module" defer></script>
 </head>
 <body class="min-h-screen flex flex-col">
     <!-- Header -->
@@ -30,38 +30,112 @@
             <span class="block w-6 h-0.5 bg-current"></span>
         </button>
 
-        <!-- Mobile Menu -->
         <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-            <!-- Mobile menu content -->
+            <div class="p-6">
+                <button id="closeMenuBtn" class="absolute top-4 right-4 text-gray-700 hover:text-red-600">
+                    <span class="block w-6 h-0.5 bg-current transform rotate-45"></span>
+                    <span class="block w-6 h-0.5 bg-current transform -rotate-45 -mt-0.5"></span>
+                </button>
+                <img src="/logo.png" alt="Ace Energy" class="w-24 mb-8">
+                <ul class="space-y-4">
+                    <li><a href="/" class="block py-2 text-gray-700 hover:text-red-600 transition-colors">Home</a></li>
+                    <li><a href="/products.html" class="block py-2 text-gray-700 hover:text-red-600 transition-colors">Products</a></li>
+                    <li><a href="/projects.html" class="block py-2 text-gray-700 hover:text-red-600 transition-colors">Projects</a></li>
+                    <li><a href="/about.html" class="block py-2 text-gray-700 hover:text-red-600 transition-colors">About</a></li>
+                    <li><a href="/contact.html" class="block py-2 text-gray-700 hover:text-red-600 transition-colors">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section class="relative h-screen">
+        <section id="hero" class="relative h-screen">
             <div class="absolute inset-0">
-                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
-                    <source src="/clip1.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div class="relative h-full">
+                    <div id="heroSlider" class="h-full">
+                        <!-- Slides will be inserted here by JavaScript -->
+                    </div>
+                    <div class="absolute inset-0 bg-black/50"></div>
+                </div>
             </div>
 
             <div class="relative z-10 h-full flex items-center justify-center text-white text-center px-4">
-                <div class="max-w-3xl">
+                <div class="max-w-3xl animate fade-in">
                     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Your Partner at Strategic Crossroads</h1>
                     <p class="text-xl sm:text-2xl mb-8">We exceed customer expectations through exceptional service and a commitment to building enduring relationships.</p>
                     <a href="/contact.html" class="inline-block bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition-colors">Contact Us</a>
                 </div>
             </div>
+
+            <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white p-2 hover:text-red-400 transition-colors">
+                <span class="sr-only">Previous slide</span>
+                <span class="block w-6 h-6 border-l-2 border-t-2 transform -rotate-45"></span>
+            </button>
+            <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white p-2 hover:text-red-400 transition-colors">
+                <span class="sr-only">Next slide</span>
+                <span class="block w-6 h-6 border-r-2 border-t-2 transform rotate-45"></span>
+            </button>
         </section>
 
-        <!-- Additional sections will be added here -->
+        <!-- Products Section -->
+        <section id="products" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Our Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product cards will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-8">About Us</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        At ACE Energy, we aim to be your partner at strategic crossroads. We exceed customer expectations
+                        through exceptional service and a commitment to building enduring relationships.
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <!-- Footer content -->
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="/logo.png" alt="Ace Energy" class="h-12 mb-4">
+                    <p class="text-gray-400">Providing cutting-edge energy solutions for the global industrial sector.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/products.html" class="text-gray-400 hover:text-white">Pipes & Fittings</a></li>
+                        <li><a href="/products.html" class="text-gray-400 hover:text-white">Valves</a></li>
+                        <li><a href="/products.html" class="text-gray-400 hover:text-white">Industrial Equipment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="/projects.html" class="text-gray-400 hover:text-white">Projects</a></li>
+                        <li><a href="/contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact</h3>
+                    <p class="text-gray-400">Abu Dhabi, UAE</p>
+                    <p class="text-gray-400">Email: contact@aceenergy.com</p>
+                    <p class="text-gray-400">Phone: +971 2 554 0676</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400">&copy; 2024 Ace Energy. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
